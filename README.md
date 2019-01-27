@@ -7,7 +7,7 @@ minSdkVersion 15
 targetSdkVersion 28
 
 ### How To Use
-Add the JitPack repository to your build file
+Add the JitPack repository to your build file.
 Add it in your root build.gradle at the end of repositories:
 ``` 
 allprojects {
