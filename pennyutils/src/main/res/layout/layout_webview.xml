@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
+            android:id="@+id/progress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    <WebView android:layout_width="match_parent"
+             android:layout_height="0dp"
+             android:layout_weight="1"
+             android:id="@+id/webView"/>
+
+    <LinearLayout
+            android:paddingEnd="8dp"
+            android:paddingStart="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+        <ImageButton
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:layout_gravity="center"
+                android:background="@android:color/transparent"
+                app:srcCompat="@drawable/ic_navigate_before_negative"
+                android:id="@+id/backward"
+                android:layout_width="@dimen/web_view_button_width"
+                android:layout_height="@dimen/web_view_button_height"/>
+
+        <ImageButton
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:layout_gravity="center"
+                android:background="@android:color/transparent"
+                app:srcCompat="@drawable/ic_navigate_next_negative"
+                android:id="@+id/forward"
+                android:layout_width="@dimen/web_view_button_width"
+                android:layout_height="@dimen/web_view_button_height"/>
+
+        <ImageButton
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:layout_gravity="center"
+                android:background="@android:color/transparent"
+                app:srcCompat="@drawable/ic_refresh"
+                android:id="@+id/refresh"
+                android:layout_width="@dimen/web_view_button_width"
+                android:layout_height="@dimen/web_view_button_height"/>
+
+        <ImageButton
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:layout_gravity="center"
+                android:background="@android:color/transparent"
+                app:srcCompat="@drawable/ic_share"
+                android:id="@+id/share"
+                android:layout_width="@dimen/web_view_button_width"
+                android:layout_height="@dimen/web_view_button_height"/>
+
+        <android.support.v4.widget.Space
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+
+        <ImageButton
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:layout_gravity="center"
+                android:background="@android:color/transparent"
+                app:srcCompat="@drawable/ic_close"
+                android:id="@+id/close"
+                android:layout_width="@dimen/web_view_button_width"
+                android:layout_height="@dimen/web_view_button_height"/>
+
+    </LinearLayout>
+
+</LinearLayout>
