@@ -7,8 +7,8 @@
     <application
             android:allowBackup="true" >
         <activity
-                android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-                android:name=".activity.WebViewActivity"/>
+                android:name=".activity.WebViewActivity"
+                android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
     </application>
 
 </manifest>
