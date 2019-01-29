@@ -16,6 +16,9 @@
              android:layout_weight="1"
              android:id="@+id/webView"/>
 
+    <FrameLayout android:layout_width="match_parent" android:layout_height="2dp"
+    android:background="#8C8C8C"/>
+
     <LinearLayout
             android:paddingEnd="8dp"
             android:paddingStart="8dp"
