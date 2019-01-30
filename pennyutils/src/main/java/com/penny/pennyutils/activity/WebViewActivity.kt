@@ -8,13 +8,16 @@ import android.webkit.WebViewClient
 import com.penny.pennyutils.R
 import kotlinx.android.synthetic.main.layout_webview.*
 import android.content.Intent
+import android.view.View
+import android.widget.Button
+import android.widget.ImageButton
 import com.penny.pennyutils.E.URL
 
 
 class WebViewActivity : AppCompatActivity() {
     private lateinit var url: String
 
-    fun createIntent(context: Context, url: String): Intent {
+    public fun createIntent(context: Context, url: String): Intent {
         val intent = Intent(context, WebViewActivity::class.java)
         intent.putExtra(URL, url)
         return intent
@@ -28,6 +31,7 @@ class WebViewActivity : AppCompatActivity() {
         url = intent.getStringExtra("url")
 
         initWebView()
+        initView()
         initButton()
     }
 
@@ -46,6 +50,13 @@ class WebViewActivity : AppCompatActivity() {
             loadUrl(url)
         }
 
+    }
+
+    private fun initView(){
+        val close = findViewById<View>(R.id.close) as ImageButton
+        close.setOnClickListener {
+            finish()
+        }
     }
 
     private fun initButton() {
@@ -68,10 +79,6 @@ class WebViewActivity : AppCompatActivity() {
 
         share.setOnClickListener {
             //TODO share
-        }
-
-        close.setOnClickListener {
-            finish()
         }
     }
 
