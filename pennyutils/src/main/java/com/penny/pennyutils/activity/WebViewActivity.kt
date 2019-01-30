@@ -6,21 +6,26 @@ import android.support.v7.app.AppCompatActivity
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import com.penny.pennyutils.R
-import kotlinx.android.synthetic.main.layout_webview.*
 import android.content.Intent
 import android.view.View
-import android.widget.Button
 import android.widget.ImageButton
 import com.penny.pennyutils.E.URL
 
 
 class WebViewActivity : AppCompatActivity() {
     private lateinit var url: String
+    private lateinit var webView: WebView
+    private lateinit var backward: ImageButton
+    private lateinit var forward: ImageButton
+    private lateinit var refresh: ImageButton
+    private lateinit var share: ImageButton
+    private lateinit var close: ImageButton
+
 
     public fun createIntent(context: Context, url: String): Intent {
-        val intent = Intent(context, WebViewActivity::class.java)
-        intent.putExtra(URL, url)
-        return intent
+        return Intent(context, WebViewActivity::class.java).apply {
+            putExtra(URL, url)
+        }
     }
 
 
@@ -30,12 +35,23 @@ class WebViewActivity : AppCompatActivity() {
 
         url = intent.getStringExtra("url")
 
+        init()
         initWebView()
         initView()
-        initButton()
+    }
+
+    private fun init() {
+        forward = findViewById<View>(R.id.forever) as ImageButton
+        backward = findViewById<View>(R.id.backward) as ImageButton
+        refresh = findViewById<View>(R.id.refresh) as ImageButton
+        share = findViewById<View>(R.id.share) as ImageButton
+        close = findViewById<View>(R.id.close) as ImageButton
+
+        webView = findViewById<View>(R.id.webView) as WebView
     }
 
     private fun initWebView() {
+
         with(webView) {
             webViewClient = object : WebViewClient() {
                 override fun onPageFinished(view: WebView?, url: String?) {
@@ -52,15 +68,7 @@ class WebViewActivity : AppCompatActivity() {
 
     }
 
-    private fun initView(){
-        val close = findViewById<View>(R.id.close) as ImageButton
-        close.setOnClickListener {
-            finish()
-        }
-    }
-
-    private fun initButton() {
-
+    private fun initView() {
         forward.setOnClickListener {
             if (webView.canGoForward())
                 webView.goForward()
@@ -80,7 +88,9 @@ class WebViewActivity : AppCompatActivity() {
         share.setOnClickListener {
             //TODO share
         }
+
+        close.setOnClickListener {
+            finish()
+        }
     }
-
-
 }
