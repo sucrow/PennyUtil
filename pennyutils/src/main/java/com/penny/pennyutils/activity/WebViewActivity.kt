@@ -33,7 +33,7 @@ class WebViewActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.layout_webview)
 
-        url = intent.getStringExtra("url")
+        url = intent.getStringExtra(URL)
 
         init()
         initWebView()
