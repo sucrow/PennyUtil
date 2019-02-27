@@ -5,8 +5,7 @@ import android.content.Context.MODE_PRIVATE
 
 class SharedUtil(private val context: Context) {
     fun set(name: String = "pref", key: String, value: Any) {
-        val pref = context.getSharedPreferences(name, MODE_PRIVATE)
-        val editor = pref.edit()
+        val editor = context.getSharedPreferences(name, MODE_PRIVATE).edit()
 
         when (value) {
             is String -> editor.putString(key, value)
@@ -19,7 +18,7 @@ class SharedUtil(private val context: Context) {
         editor.apply()
     }
 
-    fun getString(name: String = "pref", key: String): String {
+    fun getString(name: String = "pref", key: String): String? {
         val pref = context.getSharedPreferences(name, MODE_PRIVATE)
         return pref.getString(key, null)
     }
@@ -46,4 +45,14 @@ class SharedUtil(private val context: Context) {
         return pref.getLong(key, 0)
     }
 
+    fun setEncryptionString(encryptionKey : String, key : String, value: String){
+        val editor = context.getSharedPreferences("pref", MODE_PRIVATE).edit()
+        editor.putString(key, EncryptionUtil(encryptionKey.toByteArray()).encrypt(value.toByteArray()).toString())
+        editor.apply()
+    }
+
+    fun getEncryptionString(encryptionKey: String, key: String) : String? {
+        val pref = context.getSharedPreferences("pref", MODE_PRIVATE)
+        return EncryptionUtil(encryptionKey.toByteArray()).decrypt(pref.getString(key, "").toByteArray()).toString()
+    }
 }
