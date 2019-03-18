@@ -15,7 +15,7 @@ class ProgressDialog(context: Context) : Dialog(context) {
         setContentView(R.layout.layout_progress)
     }
 
-    fun createProgressDialog(context: Context) {
+    fun createProgressDialog() {
         progressDialog = ProgressDialog(context).apply {
             window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
             setCanceledOnTouchOutside(false)
